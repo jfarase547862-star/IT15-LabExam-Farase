@@ -8,9 +8,8 @@
     <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
         <div>
             <h1 class="h3 mb-1">Employees</h1>
-            <p class="text-muted mb-0">Manage employee records for TechCore Solutions.</p>
         </div>
-        <a class="btn btn-primary" asp-action="Create">Add Employee</a>
+        <a class="btn btn-primary" asp-action="Create"><i class="bi bi-plus-circle"></i> Add Employee</a>
     </div>
 
     <div class="table-responsive">
@@ -36,9 +35,9 @@
                     <td>@item.DailyRate.ToString("C2")</td>
                     <td class="text-end">
                         <div class="btn-group btn-group-sm" role="group">
-                            <a class="btn btn-outline-secondary" asp-action="Edit" asp-route-id="@item.EmployeeId">Edit</a>
-                            <a class="btn btn-outline-danger" asp-action="Delete" asp-route-id="@item.EmployeeId">Delete</a>
-                            <a class="btn btn-outline-primary" asp-controller="Payrolls" asp-action="Index" asp-route-employeeId="@item.EmployeeId">Payroll</a>
+                            <a class="btn btn-outline-secondary" asp-action="Edit" asp-route-id="@item.EmployeeId"><i class="bi bi-pencil"></i> Edit</a>
+                            <a class="btn btn-outline-danger" asp-action="Delete" asp-route-id="@item.EmployeeId"><i class="bi bi-trash"></i> Delete</a>
+                            <a class="btn btn-outline-primary" asp-controller="Payrolls" asp-action="Index" asp-route-employeeId="@item.EmployeeId"><i class="bi bi-currency-dollar"></i> Payroll</a>
                         </div>
                     </td>
                 </tr>

@@ -6,20 +6,9 @@
 
 <div class="table-card">
     <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
-        <div>
-            <h1 class="h3 mb-1">Payroll Records</h1>
-            @if (ViewBag.EmployeeName is string employeeName && !string.IsNullOrWhiteSpace(employeeName))
-            {
-                <p class="text-muted mb-0">Showing payroll history for @employeeName.</p>
-            }
-            else
-            {
-                <p class="text-muted mb-0">Review salary computations and transaction history.</p>
-            }
-        </div>
         <div class="d-flex gap-2">
-            <a class="btn btn-outline-secondary" asp-controller="Employees" asp-action="Index">Employees</a>
-            <a class="btn btn-primary" asp-action="Create" asp-route-employeeId="@ViewBag.SelectedEmployeeId">Add Payroll</a>
+            <a class="btn btn-outline-secondary" asp-controller="Employees" asp-action="Index"><i class="bi bi-person-fill"></i> Employees</a>
+            <a class="btn btn-primary" asp-action="Create"><i class="bi bi-plus-circle-fill"></i> Add Payroll</a>
         </div>
     </div>
 
@@ -50,8 +39,8 @@
                     <td>@item.NetPay.ToString("C2")</td>
                     <td class="text-end">
                         <div class="btn-group btn-group-sm" role="group">
-                            <a class="btn btn-outline-secondary" asp-action="Edit" asp-route-id="@item.PayrollId">Edit</a>
-                            <a class="btn btn-outline-danger" asp-action="Delete" asp-route-id="@item.PayrollId">Delete</a>
+                            <a class="btn btn-outline-secondary" asp-action="Edit" asp-route-id="@item.PayrollId"><i class="bi bi-pencil"></i> Edit</a>
+                            <a class="btn btn-outline-danger" asp-action="Delete" asp-route-id="@item.PayrollId"><i class="bi bi-trash"></i> Delete</a>
                         </div>
                     </td>
                 </tr>

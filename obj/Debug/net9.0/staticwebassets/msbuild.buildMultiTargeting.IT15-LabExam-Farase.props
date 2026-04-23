@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\build\IT15-LabExam-Farase.props" />
-</Project>
