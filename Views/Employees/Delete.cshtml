@@ -1,0 +1,27 @@
+@model IT15_LabExam_Farase.Models.Employees
+
+@{
+    ViewData["Title"] = "Delete Employee";
+}
+
+<div class="form-card mx-auto" style="max-width: 760px;">
+    <h1 class="h3 mb-1 text-danger">Delete Employee</h1>
+    <p class="text-muted mb-4">This will also remove related payroll records.</p>
+
+    <dl class="row mb-0">
+        <dt class="col-sm-4">Employee ID</dt>
+        <dd class="col-sm-8">@Model.EmployeeId</dd>
+        <dt class="col-sm-4">Name</dt>
+        <dd class="col-sm-8">@Model.FullName</dd>
+        <dt class="col-sm-4">Position</dt>
+        <dd class="col-sm-8">@Model.Position</dd>
+        <dt class="col-sm-4">Department</dt>
+        <dd class="col-sm-8">@Model.Department</dd>
+    </dl>
+
+    <form asp-action="Delete" method="post" class="mt-4">
+        <input type="hidden" name="id" value="@Model.EmployeeId" />
+        <button type="submit" class="btn btn-danger">Delete</button>
+        <a asp-action="Index" class="btn btn-outline-secondary">Cancel</a>
+    </form>
+</div>

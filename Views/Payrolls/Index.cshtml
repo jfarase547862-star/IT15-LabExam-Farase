@@ -1,0 +1,62 @@
+@model IEnumerable<IT15_LabExam_Farase.Models.Payroll>
+
+@{
+    ViewData["Title"] = "Payroll";
+}
+
+<div class="table-card">
+    <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
+        <div>
+            <h1 class="h3 mb-1">Payroll Records</h1>
+            @if (ViewBag.EmployeeName is string employeeName && !string.IsNullOrWhiteSpace(employeeName))
+            {
+                <p class="text-muted mb-0">Showing payroll history for @employeeName.</p>
+            }
+            else
+            {
+                <p class="text-muted mb-0">Review salary computations and transaction history.</p>
+            }
+        </div>
+        <div class="d-flex gap-2">
+            <a class="btn btn-outline-secondary" asp-controller="Employees" asp-action="Index">Employees</a>
+            <a class="btn btn-primary" asp-action="Create" asp-route-employeeId="@ViewBag.SelectedEmployeeId">Add Payroll</a>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-striped align-middle">
+            <thead class="table-light">
+                <tr>
+                    <th>Payroll ID</th>
+                    <th>Employee</th>
+                    <th>Date</th>
+                    <th>Days Worked</th>
+                    <th>Gross Pay</th>
+                    <th>Deduction</th>
+                    <th>Net Pay</th>
+                    <th class="text-end">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.PayrollId</td>
+                    <td>@item.Employee?.FullName</td>
+                    <td>@item.PayrollDate.ToString("MMM dd, yyyy")</td>
+                    <td>@item.DaysWorked</td>
+                    <td>@item.GrossPay.ToString("C2")</td>
+                    <td>@item.Deduction.ToString("C2")</td>
+                    <td>@item.NetPay.ToString("C2")</td>
+                    <td class="text-end">
+                        <div class="btn-group btn-group-sm" role="group">
+                            <a class="btn btn-outline-secondary" asp-action="Edit" asp-route-id="@item.PayrollId">Edit</a>
+                            <a class="btn btn-outline-danger" asp-action="Delete" asp-route-id="@item.PayrollId">Delete</a>
+                        </div>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+</div>

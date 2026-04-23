@@ -1,0 +1,29 @@
+@model IT15_LabExam_Farase.Models.Payroll
+
+@{
+    ViewData["Title"] = "Delete Payroll";
+}
+
+<div class="form-card mx-auto" style="max-width: 760px;">
+    <h1 class="h3 mb-1 text-danger">Delete Payroll</h1>
+    <p class="text-muted mb-4">This transaction will be removed permanently.</p>
+
+    <dl class="row mb-0">
+        <dt class="col-sm-4">Payroll ID</dt>
+        <dd class="col-sm-8">@Model.PayrollId</dd>
+        <dt class="col-sm-4">Employee</dt>
+        <dd class="col-sm-8">@Model.Employee?.FullName</dd>
+        <dt class="col-sm-4">Date</dt>
+        <dd class="col-sm-8">@Model.PayrollDate.ToString("MMM dd, yyyy")</dd>
+        <dt class="col-sm-4">Gross Pay</dt>
+        <dd class="col-sm-8">@Model.GrossPay.ToString("C2")</dd>
+        <dt class="col-sm-4">Net Pay</dt>
+        <dd class="col-sm-8">@Model.NetPay.ToString("C2")</dd>
+    </dl>
+
+    <form asp-action="Delete" method="post" class="mt-4">
+        <input type="hidden" name="id" value="@Model.PayrollId" />
+        <button type="submit" class="btn btn-danger">Delete</button>
+        <a asp-action="Index" class="btn btn-outline-secondary">Cancel</a>
+    </form>
+</div>

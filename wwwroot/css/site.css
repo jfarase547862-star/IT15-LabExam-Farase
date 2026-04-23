@@ -1,0 +1,36 @@
+html {
+  font-size: 15px;
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+  color: #212529;
+}
+
+.feature-card,
+.table-card,
+.form-card {
+  background: #fff;
+  border: 1px solid #dee2e6;
+  border-radius: 0.5rem;
+  box-shadow: none;
+}
+
+.table thead th {
+  white-space: nowrap;
+}
+
+.form-card,
+.table-card {
+  padding: 1rem;
+}
+
+.footer {
+  padding: 1.25rem 0 2rem;
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-select:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem rgba(13, 110, 253, 0.25);
+}
